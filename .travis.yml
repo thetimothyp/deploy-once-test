@@ -7,6 +7,8 @@ node_js:
 cache: yarn
 script:
 - yarn test
+after_success:
+  "yarn after-success"
 deploy:
   provider: npm
   email: timothypark@squareup.com

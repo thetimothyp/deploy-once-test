@@ -3,13 +3,15 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "mocha test/**/*-test.js"
+    "test": "mocha test/**/*-test.js",
+    "after-success": "node after_success.js"
   },
   "repository": "https://github.com/thetimothyp/deploy-once-test.git",
   "author": "Tim Park <timothypark@squareup.com>",
   "license": "MIT",
   "devDependencies": {},
   "dependencies": {
-    "mocha": "^4.0.1"
+    "mocha": "^4.0.1",
+    "travis-deploy-once": "^3.1.2"
   }
 }
