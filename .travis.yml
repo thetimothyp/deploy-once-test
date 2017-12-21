@@ -7,12 +7,15 @@ node_js:
 cache: yarn
 script:
 - yarn test
-after_success:
-  "yarn after-success"
-deploy:
-  provider: npm
-  email: timothypark@squareup.com
-  api_key:
-    secure: c+xuu+gYYdbX6wv6tTQ6RfPVPw9MzcN1BOxU0/ngL3gAVLbCuOzdx9pKqtEOvY+jcEfNVVk57k/UqFbJTLJ2A259qaTnvkl6Xmhu1LmPQoD0x3rRS10NZet07giE7gEY+lkVBLrMhYXtHqGL9bf9AcYGxVWGlHRUPhY81Ntot+F2OMGJw4cvadWM16u2ikAVQ54WZXpUkkaCBzn5+jJ3XES7tX18BQCzcj9awk+XklksUEktgmJ6U6yPKfHxumIhe9nvoQ8t9r8YKYyLk/dh8F59fcfE9aAtQ+rbnCtHIsRtiXGuTEw+ShVwTaAf82iX9fR+zpMuvi5iuFZtb3XRg+5X+iwV3KE2n/+2D9eHgN/B4ZmEbaWtmuq1y3YXbHCHagYEyplA1izORPFiu3av3MLP/H+57Ux0GpW2JoOeibbne8S98EGHbcRWSgeoXnkAsYARhZeqI0EfRQBdGq7eG06TuTiUG/A3bAqvwt/QIpf7Ss2maPfSjWAe2M9m6x86NMfAs2QVWOWyrLeqag9iuaref/l1lJCJlkawBII5pwTMet4NRgGPcqjXzLF+JFvrhP4QHnmI7xn/ynh8RZPxPJQ9+P3gk0UoPisPg3mMcWH3NREOAUObHjRQV5qrO5DAc4HmMLrr1N+S4U9LRAlEC4NXJcC4ltg8P4m3XPJ1Dn0=
-  on:
-    repo: thetimothyp/deploy-once-test
+
+jobs:
+  include:
+    - stage: npm publish
+      script: echo "DEPLOYING TO NPM"
+      deploy:
+        provider: npm
+        email: timothypark@squareup.com
+        api_key:
+          secure: c+xuu+gYYdbX6wv6tTQ6RfPVPw9MzcN1BOxU0/ngL3gAVLbCuOzdx9pKqtEOvY+jcEfNVVk57k/UqFbJTLJ2A259qaTnvkl6Xmhu1LmPQoD0x3rRS10NZet07giE7gEY+lkVBLrMhYXtHqGL9bf9AcYGxVWGlHRUPhY81Ntot+F2OMGJw4cvadWM16u2ikAVQ54WZXpUkkaCBzn5+jJ3XES7tX18BQCzcj9awk+XklksUEktgmJ6U6yPKfHxumIhe9nvoQ8t9r8YKYyLk/dh8F59fcfE9aAtQ+rbnCtHIsRtiXGuTEw+ShVwTaAf82iX9fR+zpMuvi5iuFZtb3XRg+5X+iwV3KE2n/+2D9eHgN/B4ZmEbaWtmuq1y3YXbHCHagYEyplA1izORPFiu3av3MLP/H+57Ux0GpW2JoOeibbne8S98EGHbcRWSgeoXnkAsYARhZeqI0EfRQBdGq7eG06TuTiUG/A3bAqvwt/QIpf7Ss2maPfSjWAe2M9m6x86NMfAs2QVWOWyrLeqag9iuaref/l1lJCJlkawBII5pwTMet4NRgGPcqjXzLF+JFvrhP4QHnmI7xn/ynh8RZPxPJQ9+P3gk0UoPisPg3mMcWH3NREOAUObHjRQV5qrO5DAc4HmMLrr1N+S4U9LRAlEC4NXJcC4ltg8P4m3XPJ1Dn0=
+        on:
+          repo: thetimothyp/deploy-once-test
